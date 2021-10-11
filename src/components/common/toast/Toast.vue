@@ -38,15 +38,16 @@ export default {
     color: rgba(255, 255, 255, 0.6);
     background-color: rgba(100, 100, 100, .6);
     /* 动画效果 */
-    animation: name duration timing-function delay iteration-count direction fill-mode;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
     animation: showtimer 3s 1s 1 forwards;
+    transition: all .3s;
 
   }
   @keyframes showtimer
   {
     0% { 
       background-color: rgba(100, 100, 100, .5);
-      color: rgba(255,255,255, 0.5);
+      color: rgba(255,255,255, 0.6);
       }
     20% { 
       background-color: rgba(100, 100, 100, .4);
