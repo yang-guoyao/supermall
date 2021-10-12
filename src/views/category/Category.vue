@@ -19,8 +19,10 @@ import CategorySideContent from './childComps/CategorySideContent.vue'
 
 import Scroll from 'components/common/scroll/Scroll'
 import {getAllCategory, getSubCategory} from 'network/category'
+import {itemListenerMixin} from 'common/mixin'
 export default {
   name: 'Category',
+  mixins: [itemListenerMixin],
   components: {
     NavBar,
     CategorySideBar,
@@ -54,8 +56,9 @@ export default {
     }
   },
   deactivated() {
-
-  },
+    // 取消首页事件总线的监听，与首页商品图片加载分开
+    this.$bus.$off('itemImgLoad', this.imgItemListener);
+    },
 }
 </script>
 <style scoped>

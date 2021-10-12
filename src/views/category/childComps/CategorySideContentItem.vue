@@ -1,7 +1,7 @@
 <template>
   <div class="item-category">
     <a :href="contentitem.link">
-      <img :src="contentitem.image" alt="">
+      <img :src="contentitem.image" alt="" @load="imgload">
       <p>{{contentitem.title}}</p>
     </a>
   </div>
@@ -18,6 +18,11 @@ export default {
       }
     }
   },
+  methods: {
+    imgload() {
+      this.$bus.$emit('itemImgLoad');
+    }
+  }
 }
 </script>
 
